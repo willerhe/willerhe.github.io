@@ -15,6 +15,7 @@ jobs:
       uses: srt32/hugo-action@v0.0.3
     - name: Output
       run: hugo
+
 #      run: hugo -D & rm -rf ./docs & mv ./public ./docs
 #    - name Push
 #      run: git add . & git commit -m '内容部署' & git push origin master
