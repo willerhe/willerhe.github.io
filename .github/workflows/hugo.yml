@@ -2,10 +2,8 @@ name: Hugo site CI
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
+    tags:
+      - '**'
 
 jobs:
   Explore-GitHub-Actions:
