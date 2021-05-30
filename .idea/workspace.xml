@@ -20,13 +20,17 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28a4baef-e5e6-4642-a2e3-de85b7c8c832" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/posts/tutorial/UseGithubActions.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/posts/tutorial/use-github-actions.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/posts/tutorial/UseGithubPages.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/posts/tutorial/use-github-pages.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hugo-theme-stack" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hugo-theme-stack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/hugo-theme-stack/assets/jsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hugo-theme-stack/assets/jsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +52,16 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitRewordedCommitMessages">
+    <option name="commitMessagesMapping">
+      <RewordedCommitMessageMapping>
+        <option name="originalMessage" value="使用hugo构建简单网页" />
+        <option name="rewordedMessage" value="添加Actions自动部署发布" />
+      </RewordedCommitMessageMapping>
+    </option>
+    <option name="currentCommit" value="1" />
+    <option name="onto" value="22d813ef78be74f5bfc570d273fffeb125836cda" />
   </component>
   <component name="ProjectId" id="1t9PSFthInvaCPlFLVrizTLqW48" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -248,7 +262,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -289,19 +303,23 @@
     </state>
     <state x="571" y="132" key="CommitChangelistDialog2/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1622178870949" />
     <state x="571" y="132" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1622340865729" />
-    <state x="100" y="100" width="1720" height="880" key="DiffContextDialog" timestamp="1622339426293">
+    <state x="100" y="100" width="1720" height="880" key="DiffContextDialog" timestamp="1622342362881">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="100" y="100" width="1720" height="880" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1622339426293" />
-    <state x="773" y="249" key="RollbackChangesDialog" timestamp="1622303914266">
+    <state x="100" y="100" width="1720" height="880" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1622342362881" />
+    <state x="814" y="0" key="Git.Rebase.Log.Action.NewCommitMessage.Dialog" timestamp="1622342140266">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="773" y="249" key="RollbackChangesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1622303914266" />
-    <state x="560" y="280" key="Vcs.Push.Dialog.v2" timestamp="1622340868089">
+    <state x="814" y="0" key="Git.Rebase.Log.Action.NewCommitMessage.Dialog/0.0.1920.1080@0.0.1920.1080" timestamp="1622342140266" />
+    <state x="773" y="249" key="RollbackChangesDialog" timestamp="1622342344139">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="773" y="249" key="RollbackChangesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1622342344139" />
+    <state x="560" y="280" key="Vcs.Push.Dialog.v2" timestamp="1622342147206">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="560" y="280" key="Vcs.Push.Dialog.v2/-1920.0.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1622178873516" />
-    <state x="560" y="280" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1622340868089" />
+    <state x="560" y="280" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1622342147206" />
     <state x="667" y="295" width="586" height="490" key="find.popup" timestamp="1622339587893">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
