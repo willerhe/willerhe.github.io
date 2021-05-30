@@ -1,21 +1,32 @@
-name: Hugo site CI
+name: Hugo Site Deploy
 
 on:
   push:
-    tags:
-      - '**'
+    branches:
+      - main  # Set a branch to deploy
+  pull_request:
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
+  deploy:
+    runs-on: ubuntu-18.04
     steps:
-    - name: Action Hugo
-      uses: kevvurs/action-hugo@v1.0-rc2
-    - name: Output
-      run: hugo
+      - uses: actions/checkout@v2
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
-#      run: hugo -D & rm -rf ./docs & mv ./public ./docs
-#    - name Push
-#      run: git add . & git commit -m '内容部署' & git push origin master
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.83.1'
+          # extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
