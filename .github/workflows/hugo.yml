@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Hugo Actions
-      uses: srt32/hugo-action@v0.0.3
+    - name: Action Hugo
+      uses: kevvurs/action-hugo@v1.0-rc2
     - name: Output
       run: hugo
 
