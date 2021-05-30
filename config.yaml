@@ -2,7 +2,7 @@ baseurl: http://willerhe.github.io/
 languageCode: zh-cn
 theme: hugo-theme-stack
 paginate: 5
-title: 乾坤袋
+title: Will
 
 # Change it to your Disqus shortname before using
 disqusShortname: hugo-theme-stack
@@ -35,7 +35,7 @@ params:
 
     sidebar:
         emoji: 👀
-        subtitle: Github不挂，我不挂。
+        subtitle: gagaga
         avatar:
             local: true
             src: img/avatar.png
