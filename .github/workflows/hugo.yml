@@ -13,9 +13,6 @@ jobs:
     steps:
     - name: Hugo Actions
     - uses: srt32/hugo-action@v0.0.3
-
-
-    - name Build
     - run: hugo
 #      run: hugo -D & rm -rf ./docs & mv ./public ./docs
 #    - name Push
