@@ -11,13 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Build the site in the Action Hugo container
+    - name: Hugo Actions
+    - uses: srt32/hugo-action@v0.0.3
 
-    - name: Action Hugo
-      uses: kevvurs/action-hugo@v1.0-rc2
 
     - name Build
-      run: hugo -D & rm -rf ./docs & mv ./public ./docs
-    - name Push
-      run: git add . & git commit -m '内容部署' & git push origin master
+    - run: hugo
+#      run: hugo -D & rm -rf ./docs & mv ./public ./docs
+#    - name Push
+#      run: git add . & git commit -m '内容部署' & git push origin master
