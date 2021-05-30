@@ -1,5 +1,5 @@
 ---
-  title: "十分钟使用Github Actions自动发布Hugo网站"
+title: "十分钟使用Github Actions自动发布Hugo网站"
 date: 2021-05-29T13:31:54+08:00
 draft: false
 tags: [
