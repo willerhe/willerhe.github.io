@@ -27,9 +27,7 @@
   <component name="ChangeListManager">
     <list default="true" id="28a4baef-e5e6-4642-a2e3-de85b7c8c832" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/posts/tutorial/UseGithubActions.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/posts/tutorial/use-github-actions.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/posts/tutorial/UseGithubPages.md" beforeDir="false" afterPath="$PROJECT_DIR$/content/posts/tutorial/use-github-pages.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/hugo-theme-stack" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hugo-theme-stack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/hugo-theme-stack/assets/jsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/themes/hugo-theme-stack/assets/jsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
