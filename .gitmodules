@@ -1,9 +1,3 @@
-[submodule "themes/hugo-ink"]
-	path = themes/hugo-ink
-	url = https://github.com/knadh/hugo-ink.git
-[submodule "themes/papercss-hugo-theme"]
-	path = themes/papercss-hugo-theme
-	url = https://github.com/zwbetz-gh/papercss-hugo-theme.git
 [submodule "themes/hugo-theme-stack"]
 	path = themes/hugo-theme-stack
 	url = https://github.com/CaiJimmy/hugo-theme-stack/
