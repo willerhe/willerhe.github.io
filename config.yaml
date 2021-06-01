@@ -48,12 +48,11 @@ params:
 
     comments:
         enabled: true
-        provider: disqus
-
+        provider: utterances
         utterances:
-            repo:
+            repo: willerhe/willerhe.github.io
             issueTerm: pathname
-            label:
+            label: comment
 
         remark42:
             host:
