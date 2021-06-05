@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Will</title><link>http://willerhe.github.io/</link><description>Recent content on Will</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 29 May 2021 13:31:54 +0800</lastBuildDate><atom:link href="http://willerhe.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>十分钟使用Github Actions自动发布Hugo网站</title><link>http://willerhe.github.io/posts/tutorial/use-github-actions/</link><pubDate>Sat, 29 May 2021 13:31:54 +0800</pubDate><guid>http://willerhe.github.io/posts/tutorial/use-github-actions/</guid><description>&lt;h3 id="介绍">介绍&lt;/h3>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Will</title><link>http://willerhe.github.io/</link><description>Recent content on Will</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 02 Jun 2021 13:31:54 +0800</lastBuildDate><atom:link href="http://willerhe.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Mysql JSON</title><link>http://willerhe.github.io/posts/note/mysql/</link><pubDate>Wed, 02 Jun 2021 13:31:54 +0800</pubDate><guid>http://willerhe.github.io/posts/note/mysql/</guid><description>&lt;h4 id="mysql-json相关操作">Mysql Json相关操作&lt;/h4>
+&lt;p>&lt;em>&lt;a class="link" href="https://dev.mysql.com/doc/refman/8.0/en/json.html" target="_blank" rel="noopener"
+>官方文档&lt;/a>&lt;/em>&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>合并两个json数组(不去重)&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>select JSON_MERGE_PRESERVE('[&amp;quot;tag1&amp;quot;]','[&amp;quot;tag1&amp;quot;,&amp;quot;tag2&amp;quot;,&amp;quot;tag3&amp;quot;]');&lt;/code>&lt;/p>
+&lt;p>结果：&lt;code>[&amp;quot;tag1&amp;quot;, &amp;quot;tag1&amp;quot;, &amp;quot;tag2&amp;quot;, &amp;quot;tag3&amp;quot;]&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>合并两个json数组(不去重)&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>select JSON_MERGE_PATCH('[&amp;quot;tag1&amp;quot;]','[&amp;quot;tag1&amp;quot;,&amp;quot;tag2&amp;quot;,&amp;quot;tag3&amp;quot;]');&lt;/code>&lt;/p>
+&lt;p>结果：&lt;code>[&amp;quot;tag1&amp;quot;, &amp;quot;tag2&amp;quot;, &amp;quot;tag3&amp;quot;]&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol></description></item><item><title>十分钟使用Github Actions自动发布Hugo网站</title><link>http://willerhe.github.io/posts/tutorial/use-github-actions/</link><pubDate>Sat, 29 May 2021 13:31:54 +0800</pubDate><guid>http://willerhe.github.io/posts/tutorial/use-github-actions/</guid><description>&lt;h3 id="介绍">介绍&lt;/h3>
 &lt;p>Github Actions是GitHub 于 2018 年 10 月推出的一个 CI\CD 服务。CI\CD 其实说的是三件事情：「持续集成（Continuous Integration）」、「持续交付（Continuous Delivery）」、「持续部署（Continuous Deployment）」。
 有了 GitHub Action 以后， GitHub 除了能够存储代码，能做的事情就更多了，比如我在 master 分支上提交了一段代码， GitHub Action 可以自动的帮我部署到我自己的服务器上去，或者它还可以帮我把代码打成镜像，将镜像自动提交到镜像仓库里。
 虽然这些事情自己手动也能做，但是懒惰是程序员的第一生产力嘛。&lt;/p>
