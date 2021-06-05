@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mysql on Will</title><link>http://willerhe.github.io/tags/mysql/</link><description>Recent content in Mysql on Will</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 02 Jun 2021 13:31:54 +0800</lastBuildDate><atom:link href="http://willerhe.github.io/tags/mysql/index.xml" rel="self" type="application/rss+xml"/><item><title>Mysql的Json相关操作</title><link>http://willerhe.github.io/posts/note/mysql/</link><pubDate>Wed, 02 Jun 2021 13:31:54 +0800</pubDate><guid>http://willerhe.github.io/posts/note/mysql/</guid><description>Mysql Json相关操作 官方文档
-合并两个json数组(不去重)
-select JSON_MERGE_PRESERVE('[&amp;quot;tag1&amp;quot;]','[&amp;quot;tag1&amp;quot;,&amp;quot;tag2&amp;quot;,&amp;quot;tag3&amp;quot;]');
-结果：[&amp;quot;tag1&amp;quot;, &amp;quot;tag1&amp;quot;, &amp;quot;tag2&amp;quot;, &amp;quot;tag3&amp;quot;]
-合并两个json数组(不去重)
-select JSON_MERGE_PATCH('[&amp;quot;tag1&amp;quot;]','[&amp;quot;tag1&amp;quot;,&amp;quot;tag2&amp;quot;,&amp;quot;tag3&amp;quot;]');
-结果：[&amp;quot;tag1&amp;quot;, &amp;quot;tag2&amp;quot;, &amp;quot;tag3&amp;quot;]</description></item></channel></rss>
+1. 合并两个json数组(不去重)
+- `select JSON_MERGE_PRESERVE('[&amp;quot;1&amp;quot;]','[&amp;quot;1&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;3&amp;quot;]');` 结果：`[&amp;quot;1&amp;quot;, &amp;quot;1&amp;quot;, &amp;quot;2&amp;quot;, &amp;quot;3&amp;quot;]` 2. 合并两个json数组(去重)
+- `select JSON_MERGE_PATCH('[&amp;quot;1&amp;quot;]','[&amp;quot;1&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;3&amp;quot;]');` 结果：`[&amp;quot;1&amp;quot;, &amp;quot;2&amp;quot;, &amp;quot;3&amp;quot;]` 3. 查询json对象字段
+sku字段内容：`{name:&amp;quot;校服&amp;quot;}` - `SELECT sku-&amp;gt;&amp;quot;$.name&amp;quot; FROM trade_store_sku` 结果：`&amp;quot;校服&amp;quot;` - `SELECT sku-&amp;gt;&amp;gt;&amp;quot;$.name&amp;quot; FROM trade_store_sku` 结果：`校服` 4. 赋值
+- `SELECT JSON_SET('{&amp;quot;name&amp;quot;:&amp;quot;校服&amp;quot;}', &amp;quot;$.name&amp;quot;, &amp;quot;秋装&amp;quot;)` 结果：`{&amp;quot;name&amp;quot;: &amp;quot;秋装&amp;quot;}` - `SELECT JSON_SET('[&amp;quot;1&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;3&amp;quot;]', &amp;quot;$[1]&amp;quot;, &amp;quot;秋装&amp;quot;)` 结果：`[&amp;quot;1&amp;quot;, &amp;quot;秋装&amp;quot;, &amp;quot;3&amp;quot;]` 5. 删除
+- `SELECT JSON_REMOVE('{&amp;quot;name&amp;quot;:&amp;quot;校服&amp;quot;}', &amp;quot;$.name&amp;quot;)` 结果：`{}` - `SELECT JSON_REMOVE('[&amp;quot;1&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;3&amp;quot;]', &amp;quot;$[1]&amp;quot;)` 结果：`[&amp;quot;1&amp;quot;, &amp;quot;3&amp;quot;]`</description></item></channel></rss>
