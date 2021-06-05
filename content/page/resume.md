@@ -2,7 +2,7 @@
 title: 个人简历
 description: 开发的个人简历
 date: '2019-02-28'
-draft: true
+draft: false
 slug: resume
 menu:
     main: 
