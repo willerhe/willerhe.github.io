@@ -27,7 +27,198 @@
 结果：`{}`
 - `SELECT JSON_REMOVE('[&amp;quot;1&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;3&amp;quot;]', &amp;quot;$[1]&amp;quot;)`
 结果：`[&amp;quot;1&amp;quot;, &amp;quot;3&amp;quot;]`
-&lt;/code>&lt;/pre></description></item><item><title>十分钟使用Github Actions自动发布Hugo网站</title><link>http://willerhe.github.io/posts/tutorial/use-github-actions/</link><pubDate>Sat, 29 May 2021 13:31:54 +0800</pubDate><guid>http://willerhe.github.io/posts/tutorial/use-github-actions/</guid><description>&lt;h3 id="介绍">介绍&lt;/h3>
+&lt;/code>&lt;/pre></description></item><item><title>面试常问问题汇总</title><link>http://willerhe.github.io/posts/resume/untitled/</link><pubDate>Mon, 31 May 2021 13:31:54 +0800</pubDate><guid>http://willerhe.github.io/posts/resume/untitled/</guid><description>&lt;h4 id="spring事务的默认隔离级别">Spring事务的默认隔离级别?&lt;/h4>
+&lt;p>默认隔离级别：REPEATED_READ&lt;/p>
+&lt;ol>
+&lt;li>READ_UNCOMMITED 读未提交 高并发场景下，其他线程可以读到未提交的事务的数据 ，可能出现脏读、幻读或不可重复读&lt;/li>
+&lt;li>READ_COMMITED 读已提交 只能读到已提交的数据&lt;/li>
+&lt;li>REPEATED_READ 重复读 能读到当前事务中的未提交的数据和其他事务已经提交的数据&lt;/li>
+&lt;li>SERIALIZABLE 串行化 事务挨个执行，不存在脏读、幻读、不可重复读问题，但是影响性能&lt;/li>
+&lt;/ol>
+&lt;h4 id="常见的设计模式">常见的设计模式？&lt;/h4>
+&lt;ol>
+&lt;li>单例模式&lt;/li>
+&lt;li>装饰器模式 一个统一的抽象父类，不同的子类有自己不同的装饰属性和装饰方法&lt;/li>
+&lt;li>工厂模式 流程一致，但每个子类的单独流程处理不同&lt;/li>
+&lt;li>建造者模式 SQL build就是非常常见的一种建造者模式&lt;/li>
+&lt;li>观察者模式 即发布订阅模式&lt;/li>
+&lt;/ol>
+&lt;h4 id="常用的软件工程图时序图状态图er图流程图">常用的软件工程图。时序图、状态图、ER图、流程图&lt;/h4>
+&lt;h4 id="mysql常用的方法">Mysql常用的方法&lt;/h4>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="n">concat&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="n">ifnull&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="k">upper&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="n">substr&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="k">trim&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="n">rpad&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="n">lpad&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="k">replace&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="n">round&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="n">now&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="n">currenttime&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="n">UNIX_TIMESTAMP&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="n">FROM_UNIXTIME&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="mysql分页的实现">Mysql分页的实现&lt;/h4>
+&lt;ol>
+&lt;li>limit offset 传统实现&lt;/li>
+&lt;li>通过有序id去实现&lt;/li>
+&lt;li>覆盖索引，利用索引优势select * from (select id from job limit 1000000,100) a left join job b on a.id = b.id;&lt;/li>
+&lt;/ol>
+&lt;h4 id="如何处理超卖订单">如何处理超卖订单？&lt;/h4>
+&lt;p>避免超卖订单的产生：分布式锁（redison）底层是用Lua脚本实现的redis原子执行，乐观锁、自旋锁。&lt;/p>
+&lt;p>还有可能出现的问题：redis主从切换导致锁丢失&lt;/p>
+&lt;h4 id="mq-的典型应用场景项目中什么地方用到过怎么实现的">mq 的典型应用场景，项目中什么地方用到过，怎么实现的？&lt;/h4>
+&lt;p>目的：削峰、解耦&lt;/p>
+&lt;p>高可用：rabbitmq的镜像集群的部署模式&lt;/p>
+&lt;p>&amp;hellip;&lt;/p>
+&lt;h4 id="什么场景下会使用多线程">什么场景下会使用多线程&lt;/h4>
+&lt;ol>
+&lt;li>一个业务有很多处理流程并且处理流程之间不会相互影响&lt;/li>
+&lt;li>定时任务、批处理任务&lt;/li>
+&lt;li>需要知道一个任务的执行情况，比如redission中自动续期功能的实现就是一个新的线程不断查看锁的引用状态&lt;/li>
+&lt;/ol>
+&lt;h4 id="redis的几种基本数据类型">Redis的几种基本数据类型&lt;/h4>
+&lt;ol>
+&lt;li>String&lt;/li>
+&lt;li>键值对Hash&lt;/li>
+&lt;li>列表list&lt;/li>
+&lt;li>集合set&lt;/li>
+&lt;li>有序集合zset&lt;/li>
+&lt;/ol>
+&lt;h4 id="mybatis怎么用wherein">Mybatis怎么用WhereIn&lt;/h4>
+&lt;p>不能够直接写会有sql注入问题，用Mybatis的foreach方法对数组进行处理。&lt;/p>
+&lt;h4 id="线程的几种状态">线程的几种状态&lt;/h4>
+&lt;ol>
+&lt;li>创建&lt;/li>
+&lt;li>可运行&lt;/li>
+&lt;li>运行中&lt;/li>
+&lt;li>阻塞&lt;/li>
+&lt;li>消亡&lt;/li>
+&lt;/ol>
+&lt;h4 id="idea中常用的插件有哪些">Idea中常用的插件有哪些&lt;/h4>
+&lt;ol>
+&lt;li>
+&lt;p>Idea Mind Map&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>MybatisX 映射文件的生成&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Mybatis log plugin 把mybatis生成的日志转为实际的sql语句&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h4 id="springmvc的声明周期">SpringMVC的声明周期&lt;/h4>
+&lt;ol>
+&lt;li>发起请求到前端控制器DispatcherServlet&lt;/li>
+&lt;li>前端控制器请求Handle&lt;/li>
+&lt;li>向前端控制器返回Handle&lt;/li>
+&lt;li>前端控制器去处理执行Handle&lt;/li>
+&lt;li>返回结果&lt;/li>
+&lt;/ol>
+&lt;h4 id="java中和equals的不同">Java中==和equals的不同&lt;/h4>
+&lt;p>对于基本数据类型来说没有不同，对于引用类型==对比实际引用的对象，equals对比的是值&lt;/p>
+&lt;h4 id="java中如何让tostring方法不产生异常">Java中如何让toString方法不产生异常&lt;/h4>
+&lt;p>用valueOf会返回字符串&lt;code>&amp;quot;null&amp;quot;&lt;/code>&lt;/p>
+&lt;h4 id="java反射的原理">Java反射的原理&lt;/h4>
+&lt;ol>
+&lt;li>java反射机制实现是在代码的运行时实现&lt;/li>
+&lt;li>java在编译后会生成class文件，反射通过字节码文件找到类的属性和方法&lt;/li>
+&lt;/ol>
+&lt;h4 id="java中数组转list">Java中数组转list&lt;/h4>
+&lt;ol>
+&lt;li>&lt;code>List&amp;lt;Integer&amp;gt; list1 = new ArrayList&amp;lt;&amp;gt;(Arrays.asList(arr));&lt;/code>&lt;/li>
+&lt;li>&lt;code>Collections.addAll(list1,arr);&lt;/code>&lt;/li>
+&lt;li>&lt;code>Java9中 List&amp;lt;String&amp;gt; resultList = List.of(array);&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h4 id="java中stringstringbuilderstringbuffer的区别">Java中String、StringBuilder、StringBuffer的区别&lt;/h4>
+&lt;ol>
+&lt;li>String是不可变类，任何对字符串的操作都会产生新的对象空间&lt;/li>
+&lt;li>StringBuffer、StringBuilder都不会产生额外的空间&lt;/li>
+&lt;li>StringBuffer是线程安全的，但是效率和StringBuilder相比要慢得多&lt;/li>
+&lt;li>StringBuffer加了很多&lt;code>synchronized&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h4 id="java中synchronized和volatile的区别">Java中&lt;code>synchronized&lt;/code>和&lt;code>volatile&lt;/code>的区别&lt;/h4>
+&lt;ol>
+&lt;li>都是为了保证线程安全，线程安全分为两个方面&lt;code>执行控制&lt;/code>和&lt;code>内存可见&lt;/code>&lt;/li>
+&lt;li>synchronized实现执行控制，它会阻止其他线程访问被其保护的代码段&lt;/li>
+&lt;li>volatile保证了内存可见，volatile声明的变量在读取的时候都会在主存中读取&lt;/li>
+&lt;li>volatile不会造成线程阻塞，volatile只能用于变量，volatile只适用于对变量的写入不依赖变量当前值的情况&lt;/li>
+&lt;/ol>
+&lt;h4 id="java中hashmap和hashtable的区别">Java中HashMap和HashTable的区别&lt;/h4>
+&lt;p>HashTable线程安全 不能用null作为key，HashMap不安全 可以用null作为key&lt;/p>
+&lt;h4 id="mysql中left-join的时候on后面加的条件是过滤什么数据的">MySQL中left join的时候on后面加的条件是过滤什么数据的&lt;/h4>
+&lt;p>on后面加的条件是对临时表数据进行过滤，不影响主表数据，where后的条件是过滤主表数据的&lt;/p>
+&lt;h4 id="一条mysql执行的全部流程">一条MySQL执行的全部流程&lt;/h4>
+&lt;ol>
+&lt;li>查询缓存 - MySQL 拿到一个查询请求后先会在查询缓存中看看是否执行过此语句，之前执行的语句会以 key-value 的形式缓存在内存中，key 是缓存的语句，value 是查询的结果&lt;/li>
+&lt;li>解析器生成解析树，判断是否满足SQL要求&lt;/li>
+&lt;li>预处理再次生成解析数&lt;/li>
+&lt;li>查询优化
+&lt;ul>
+&lt;li>选择合适的索引&lt;/li>
+&lt;li>扫表还是走索引&lt;/li>
+&lt;li>表关联&lt;/li>
+&lt;li>优化where&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>查询执行计划和执行引擎，保证权限&lt;/li>
+&lt;li>查询数据返回结果&lt;/li>
+&lt;/ol>
+&lt;h4 id="几种方法可以过滤数组的某几个元素">几种方法可以过滤数组的某几个元素&lt;/h4>
+&lt;ol>
+&lt;li>
+&lt;p>java8的filter方法&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>传统方式的遍历&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h4 id="移除list中的元素用for循环遍历的时候是从前到后还是从后到前从后向前">移除List中的元素，用for循环遍历的时候是从前到后还是从后到前?从后向前&lt;/h4>
+&lt;h4 id="微服务的相关组件">微服务的相关组件&lt;/h4>
+&lt;ol>
+&lt;li>网关 Spring-gateway&lt;/li>
+&lt;li>注册中心和配置中心 nacos&lt;/li>
+&lt;li>服务通信 spring-openfeign&lt;/li>
+&lt;li>负载均衡ribbon&lt;/li>
+&lt;li>服务降级、熔断限流Hystrix、sentinel&lt;/li>
+&lt;li>分布式事务seata&lt;/li>
+&lt;/ol>
+&lt;h4 id="spring中常用的注解">Spring中常用的注解&lt;/h4>
+&lt;p>&lt;code>RestController RequestMapping RequestBody RequestParam PathVariable RequiresPermissions Autowried&lt;/code>&lt;/p>
+&lt;h4 id="spring中一个服务接口多个实现怎么注入controller">Spring中一个服务接口多个实现，怎么注入Controller&lt;/h4>
+&lt;p>通过给service自定义名称注入，用Resource注入并加name，或者保持名称一致用Autowired，或者用Qualifier加类名&lt;/p>
+&lt;h4 id="java中注解的实现原理">Java中注解的实现原理&lt;/h4>
+&lt;ol>
+&lt;li>注解的本质是一个接口&lt;/li>
+&lt;li>运行时会反射得到注解信息&lt;/li>
+&lt;li>能够注解注解的注解叫做元注解&lt;/li>
+&lt;/ol>
+&lt;h4 id="线程进程携程">线程、进程、携程&lt;/h4>
+&lt;p>进程是操作系统分配资源的最小单位，线程是程序分配的最小单位，携程是基于线程之上的更加轻量的存在&lt;/p>
+&lt;h4 id="jvm类加载器怎么加载的类顺序">JVM类加载器怎么加载的类顺序&lt;/h4>
+&lt;ol>
+&lt;li>
+&lt;p>首先加载父类的静态字段或者静态语句块&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>子类的静态字段或静态语句块&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>父类普通变量以及语句块&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>父类构造方法被加载&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>子类变量或者语句块被加载&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>子类构造方法被加载&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h4 id="应对高并发的手段">应对高并发的手段&lt;/h4>
+&lt;ol>
+&lt;li>redis缓存&lt;/li>
+&lt;li>CDN加速、负载均衡&lt;/li>
+&lt;li>索引优化&lt;/li>
+&lt;li>MQ削峰&lt;/li>
+&lt;li>通过redis实现的分布式限流方法，实现方式类似令牌桶&lt;/li>
+&lt;/ol>
+&lt;h4 id="容器化的优势">容器化的优势&lt;/h4>
+&lt;ol>
+&lt;li>减少启动和管理的虚拟机的数量&lt;/li>
+&lt;li>可移植，具备灵活性，能够快速部署&lt;/li>
+&lt;li>可以编排容器，提高生产力&lt;/li>
+&lt;/ol>
+&lt;h4 id="反射的实现原理">反射的实现原理&lt;/h4></description></item><item><title>十分钟使用Github Actions自动发布Hugo网站</title><link>http://willerhe.github.io/posts/tutorial/use-github-actions/</link><pubDate>Sat, 29 May 2021 13:31:54 +0800</pubDate><guid>http://willerhe.github.io/posts/tutorial/use-github-actions/</guid><description>&lt;h3 id="介绍">介绍&lt;/h3>
 &lt;p>Github Actions是GitHub 于 2018 年 10 月推出的一个 CI\CD 服务。CI\CD 其实说的是三件事情：「持续集成（Continuous Integration）」、「持续交付（Continuous Delivery）」、「持续部署（Continuous Deployment）」。
 有了 GitHub Action 以后， GitHub 除了能够存储代码，能做的事情就更多了，比如我在 master 分支上提交了一段代码， GitHub Action 可以自动的帮我部署到我自己的服务器上去，或者它还可以帮我把代码打成镜像，将镜像自动提交到镜像仓库里。
 虽然这些事情自己手动也能做，但是懒惰是程序员的第一生产力嘛。&lt;/p>
