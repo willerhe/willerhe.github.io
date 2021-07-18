@@ -263,6 +263,19 @@ B站视频 详解[分布式锁](https://www.bilibili.com/video/BV1vi4y1V7se?p=7&
 #### Redis缓存不一致问题
 缓存和事务结合起来容易出现缓存不一致的情况，应该在事务提交的时候删除缓存
 
+#### 内存泄漏相关问题
+1. 造成内存泄漏的常见原因：长期持有某些资源没有释放、对象所占内存过大、static修饰的静态资源太大
+
+[其他汇总](https://blog.csdn.net/duoduo18up/article/details/81545958)
+
+#### BIO、NIO、AIO 有什么区别？
+
+BIO：Block IO 同步阻塞式 IO，就是我们平常使用的传统 IO，它的特点是模式简单使用方便，并发处理能力低。
+
+NIO：New IO 同步非阻塞 IO，是传统 IO 的升级，客户端和服务器端通过 Channel（通道）通讯，实现了多路复用。
+
+AIO：Asynchronous IO 是 NIO 的升级，也叫 NIO2，实现了异步非堵塞 IO ，异步 IO 的操作基于事件和回调机制。
+
 #### Java8的函数式编程汇总
 todo..
 
