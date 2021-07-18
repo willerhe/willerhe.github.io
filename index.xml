@@ -304,6 +304,24 @@
 &lt;h4 id="事务">事务&lt;/h4>
 &lt;p>Springboot注解式事务的使用需要了解事务的 &lt;a class="link" href="https://blog.csdn.net/levae1024/article/details/82998386" target="_blank" rel="noopener"
 >传播机制&lt;/a>。&lt;/p>
+&lt;ol>
+&lt;li>脏读：一个事务读取了另外一个事务没有提交的数据，然后另外一个事务回滚了，造成第一个事务读取数据错误&lt;/li>
+&lt;li>不可重复读： 在一个事务当中前后两次查询数据得到的值是不一样的，说明有其他事务修改了数据&lt;/li>
+&lt;li>幻读：一般是增加或者删除操作&lt;/li>
+&lt;/ol>
+&lt;p>mysql默认的隔离级别是Repeatable Read 在读取数据的时候不能修改，但是因为可以删除和新增所以可能产生幻读&lt;/p>
+&lt;p>B站视频&lt;a class="link" href="https://www.bilibili.com/video/BV1EE411p7dD" target="_blank" rel="noopener"
+>详解事务&lt;/a>&lt;/p>
+&lt;h4 id="分布式架构需要用到的锁">分布式架构需要用到的锁&lt;/h4>
+&lt;p>synchronize 是针对单机部署的情况，如果有多个实例就需要用到分布式的锁，分布式的锁一般是可重入式的自旋锁&lt;/p>
+&lt;p>B站视频 详解&lt;a class="link" href="https://www.bilibili.com/video/BV1vi4y1V7se?p=7&amp;amp;t=377" target="_blank" rel="noopener"
+>分布式锁&lt;/a>&lt;/p>
+&lt;h4 id="redis缓存不一致问题">Redis缓存不一致问题&lt;/h4>
+&lt;p>缓存和事务结合起来容易出现缓存不一致的情况，应该在事务提交的时候删除缓存&lt;/p>
+&lt;h4 id="java8的函数式编程汇总">Java8的函数式编程汇总&lt;/h4>
+&lt;p>todo..&lt;/p>
+&lt;h4 id="什么是面向对象">什么是面向对象&lt;/h4>
+&lt;h4 id="封装继承和多态">封装继承和多态&lt;/h4>
 &lt;h4 id="netty-使用">Netty 使用&lt;/h4>
 &lt;h4 id="反射的实现原理">反射的实现原理&lt;/h4>
 &lt;h4 id="多个集群怎么保证会话一致性">多个集群怎么保证会话一致性&lt;/h4></description></item></channel></rss>
