@@ -1,12 +1,3 @@
----
-title: "面试常问问题汇总"
-date: 2021-05-31T13:31:54+08:00
-draft: false
-tags: [
-  "面试"
-]
----
-
 #### Spring事务的默认隔离级别?
 
 默认隔离级别：REPEATED_READ
@@ -211,15 +202,49 @@ on后面加的条件是对临时表数据进行过滤，不影响主表数据，
 2. 可移植，具备灵活性，能够快速部署
 3. 可以编排容器，提高生产力
 
+#### Java中如何实现一个单例
 
+双重检查的实现方法(线程安全、关注效率)
 
+```java
+public class Singleton {
 
+    private static volatile Singleton singleton;
+    private Singleton() {}
+    public static Singleton getInstance() {
+        if (singleton == null) {
+            synchronized (Singleton.class) {
+                if (singleton == null) {
+                    singleton = new Singleton();
+                }
+            }
+        }
+        return singleton;
+    }
+}
+```
 
+#### MySQL中Left Join、Inner join、right join的区别
 
+1. Inner join 等值连接 返回两个表中连接字段相等的值
+2. Left join 左表为基础返回左表中所有的记录和右表中连接记录相等的记录
+3. 同left join
+
+#### AOP切面
+底层通过动态代理实现
+实现：
+1. @Component @Aspect
+2. @Pointcut(value = "execution( * com.example.demo.controller.*.*(..))")
+3. @Around("pointCut()")
+
+#### 事务
+Springboot注解式事务的使用需要了解事务的 [传播机制](https://blog.csdn.net/levae1024/article/details/82998386)。
+
+#### Netty 使用
 
 #### 反射的实现原理
 
-
+#### 多个集群怎么保证会话一致性
 
 
 
