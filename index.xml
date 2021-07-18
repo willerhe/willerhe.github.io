@@ -96,6 +96,16 @@
 &lt;li>建造者模式 SQL build就是非常常见的一种建造者模式&lt;/li>
 &lt;li>观察者模式 即发布订阅模式&lt;/li>
 &lt;/ol>
+&lt;h4 id="spring中所使用的设计模式">Spring中所使用的设计模式&lt;/h4>
+&lt;ol>
+&lt;li>切面AOP使用代理模式、事务也是使用的代理模式&lt;/li>
+&lt;li>适配器模式，DispatcherServlet根据请求信息调用HandlerMapping&lt;/li>
+&lt;li>装饰器模式，Spring 中配置 DataSource 的时候，DataSource 可能是不同的数据库和数据源&lt;/li>
+&lt;li>工厂模式，Spring使用工厂模式通过 BeanFactory、ApplicationContext 创建 bean 对象&lt;/li>
+&lt;li>模板方法模式，spring 中 jdbcTemplate、hibernateTemplate 等以 Template 结尾的对数据库操作的类，它们就使用到了模板模式&lt;/li>
+&lt;li>观察者模式，ApplicationEvent&lt;/li>
+&lt;li>单例模式，Spring 中 bean 的默认作用域就是 singleton(单例)的&lt;/li>
+&lt;/ol>
 &lt;h4 id="常用的软件工程图时序图状态图er图流程图">常用的软件工程图。时序图、状态图、ER图、流程图&lt;/h4>
 &lt;h4 id="mysql常用的方法">Mysql常用的方法&lt;/h4>
 &lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="n">concat&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="n">ifnull&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="k">upper&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="n">substr&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="k">trim&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="n">rpad&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="n">lpad&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="k">replace&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="n">round&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="n">now&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="n">currenttime&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="n">UNIX_TIMESTAMP&lt;/span>&lt;span class="err">、&lt;/span>&lt;span class="n">FROM_UNIXTIME&lt;/span>&lt;span class="w">
