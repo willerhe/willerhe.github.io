@@ -15,6 +15,15 @@
 4. 建造者模式 SQL build就是非常常见的一种建造者模式
 5. 观察者模式 即发布订阅模式
 
+#### Spring中所使用的设计模式
+1. 切面AOP使用代理模式、事务也是使用的代理模式
+2. 适配器模式，DispatcherServlet根据请求信息调用HandlerMapping
+3. 装饰器模式，Spring 中配置 DataSource 的时候，DataSource 可能是不同的数据库和数据源
+4. 工厂模式，Spring使用工厂模式通过 BeanFactory、ApplicationContext 创建 bean 对象
+5. 模板方法模式，spring 中 jdbcTemplate、hibernateTemplate 等以 Template 结尾的对数据库操作的类，它们就使用到了模板模式
+6. 观察者模式，ApplicationEvent
+7. 单例模式，Spring 中 bean 的默认作用域就是 singleton(单例)的
+
 #### 常用的软件工程图。时序图、状态图、ER图、流程图
 
 #### Mysql常用的方法
