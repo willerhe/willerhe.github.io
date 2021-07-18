@@ -328,6 +328,16 @@
 >分布式锁&lt;/a>&lt;/p>
 &lt;h4 id="redis缓存不一致问题">Redis缓存不一致问题&lt;/h4>
 &lt;p>缓存和事务结合起来容易出现缓存不一致的情况，应该在事务提交的时候删除缓存&lt;/p>
+&lt;h4 id="内存泄漏相关问题">内存泄漏相关问题&lt;/h4>
+&lt;ol>
+&lt;li>造成内存泄漏的常见原因：长期持有某些资源没有释放、对象所占内存过大、static修饰的静态资源太大&lt;/li>
+&lt;/ol>
+&lt;p>&lt;a class="link" href="https://blog.csdn.net/duoduo18up/article/details/81545958" target="_blank" rel="noopener"
+>其他汇总&lt;/a>&lt;/p>
+&lt;h4 id="bionioaio-有什么区别">BIO、NIO、AIO 有什么区别？&lt;/h4>
+&lt;p>BIO：Block IO 同步阻塞式 IO，就是我们平常使用的传统 IO，它的特点是模式简单使用方便，并发处理能力低。&lt;/p>
+&lt;p>NIO：New IO 同步非阻塞 IO，是传统 IO 的升级，客户端和服务器端通过 Channel（通道）通讯，实现了多路复用。&lt;/p>
+&lt;p>AIO：Asynchronous IO 是 NIO 的升级，也叫 NIO2，实现了异步非堵塞 IO ，异步 IO 的操作基于事件和回调机制。&lt;/p>
 &lt;h4 id="java8的函数式编程汇总">Java8的函数式编程汇总&lt;/h4>
 &lt;p>todo..&lt;/p>
 &lt;h4 id="什么是面向对象">什么是面向对象&lt;/h4>
