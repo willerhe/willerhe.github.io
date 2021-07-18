@@ -27,7 +27,60 @@
 结果：`{}`
 - `SELECT JSON_REMOVE('[&amp;quot;1&amp;quot;,&amp;quot;2&amp;quot;,&amp;quot;3&amp;quot;]', &amp;quot;$[1]&amp;quot;)`
 结果：`[&amp;quot;1&amp;quot;, &amp;quot;3&amp;quot;]`
-&lt;/code>&lt;/pre></description></item><item><title>面试常问问题汇总</title><link>http://willerhe.github.io/posts/resume/untitled/</link><pubDate>Mon, 31 May 2021 13:31:54 +0800</pubDate><guid>http://willerhe.github.io/posts/resume/untitled/</guid><description>&lt;h4 id="spring事务的默认隔离级别">Spring事务的默认隔离级别?&lt;/h4>
+&lt;/code>&lt;/pre></description></item><item><title>十分钟使用Github Actions自动发布Hugo网站</title><link>http://willerhe.github.io/posts/tutorial/use-github-actions/</link><pubDate>Sat, 29 May 2021 13:31:54 +0800</pubDate><guid>http://willerhe.github.io/posts/tutorial/use-github-actions/</guid><description>&lt;h3 id="介绍">介绍&lt;/h3>
+&lt;p>Github Actions是GitHub 于 2018 年 10 月推出的一个 CI\CD 服务。CI\CD 其实说的是三件事情：「持续集成（Continuous Integration）」、「持续交付（Continuous Delivery）」、「持续部署（Continuous Deployment）」。
+有了 GitHub Action 以后， GitHub 除了能够存储代码，能做的事情就更多了，比如我在 master 分支上提交了一段代码， GitHub Action 可以自动的帮我部署到我自己的服务器上去，或者它还可以帮我把代码打成镜像，将镜像自动提交到镜像仓库里。
+虽然这些事情自己手动也能做，但是懒惰是程序员的第一生产力嘛。&lt;/p>
+&lt;h3 id="环境要求">环境要求&lt;/h3>
+&lt;ol>
+&lt;li>安装git&lt;/li>
+&lt;li>拥有一个github账号&lt;/li>
+&lt;li>了解Github Pages托管静态网站方式 &lt;a class="link" href="../use-github-pages" >Check&amp;gt;&amp;gt;&amp;gt;&lt;/a>&lt;/li>
+&lt;li>TODO：自动同步到Gitee镜像&lt;/li>
+&lt;/ol>
+&lt;h3 id="步骤">步骤&lt;/h3>
+&lt;ol>
+&lt;li>了解github actions的工作流程、了解docker镜像基本使用方式。&lt;/li>
+&lt;li>找到需要自动构建的Hugo静态网站，并确保在本地能够构建成功。&lt;/li>
+&lt;li>开始使用github actions 服务，github actions会寻找项目根目录下&lt;code>.github/workflows/*&lt;/code>下面所有的文件作为工作流描述文件，&lt;a class="link" href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions" target="_blank" rel="noopener"
+>了解详情&amp;gt;&amp;gt;&amp;gt;&lt;/a>。
+这里我们不需要自己编写，直接使用第三方镜像，在github的&lt;a class="link" href="https://github.com/marketplace?type=actions&amp;amp;query=hugo&amp;#43;" target="_blank" rel="noopener"
+>应用市场&lt;/a> 中查找适合自己Hugo项目的actions镜像，这里用的是&lt;a class="link" href="https://github.com/marketplace/actions/hugo-setup" target="_blank" rel="noopener"
+>hugo-setup&lt;/a>。
+把示例项目中&lt;code>.github/workflows/&lt;/code>下面的配置文件拷贝到自己的项目中，如果同样使用的是hugo-setup，注意&lt;code> publish_dir: ./public&lt;/code>配置在&lt;code>v3.8.0&lt;/code>版本是不起作用的，直接默认就好，不用改。
+如果报项目仓库的访问权限错误，去给自己的项目加上访问秘钥，&lt;a class="link" href="https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-first-deployment-with-github_token" target="_blank" rel="noopener"
+>&amp;gt;&amp;gt;&amp;gt;&lt;/a>。&lt;/li>
+&lt;li>修改代码推送到main分支，在github actions栏目中能够看到构建过程。构建成功后，修改git pages设置，把网站指向镜像自动部署的分支，要保证github pages能够找到index.html文件。&lt;/li>
+&lt;/ol>
+&lt;p>&lt;em>&amp;mdash;&amp;mdash; 待完善&lt;/em>&lt;/p></description></item><item><title>十分钟使用Github Pages和Hugo搭建个人网站</title><link>http://willerhe.github.io/posts/tutorial/use-github-pages/</link><pubDate>Sat, 29 May 2021 13:31:54 +0800</pubDate><guid>http://willerhe.github.io/posts/tutorial/use-github-pages/</guid><description>&lt;h3 id="介绍">介绍&lt;/h3>
+&lt;p>Github Pages是Github官方的静态站点托管系统，能够依赖Git的代码管理能力和Github的仓库轻松维护个人网站。&lt;/p>
+&lt;p>Hugo是Go编写的静态网站生成器，速度快，易用，可配置。
+使用Github Pages + Hugo构建个人网站的优点：&lt;/p>
+&lt;ul>
+&lt;li>无须额外服务器，无须额外服务器，专注创作&lt;/li>
+&lt;li>支持Markdown&lt;/li>
+&lt;li>支持查看文件的历史改动&lt;/li>
+&lt;li>Hugo拥有海量皮肤，能够自定义&lt;/li>
+&lt;/ul>
+&lt;h3 id="环境要求">环境要求&lt;/h3>
+&lt;ol>
+&lt;li>安装git&lt;/li>
+&lt;li>安装golang、hugo&lt;/li>
+&lt;li>拥有一个github账号&lt;/li>
+&lt;/ol>
+&lt;h3 id="步骤">步骤&lt;/h3>
+&lt;ol>
+&lt;li>为站点创建仓库，仓库名称必须为&lt;code>&amp;lt;user&amp;gt;.github.io&lt;/code>或者&lt;code>&amp;lt;organization&amp;gt;.github.io&lt;/code>，必须为&lt;code>Public&lt;/code>仓库，必须有&lt;code>README.md&lt;/code>文件，必须有&lt;code>index.html&lt;/code>作为网站入口。&lt;a class="link" href="https://docs.github.com/cn/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-a-repository-for-your-site" target="_blank" rel="noopener"
+>More&amp;gt;&amp;gt;&amp;gt;&lt;/a>&lt;/li>
+&lt;li>访问网站&lt;code>https://&amp;lt;user&amp;gt;.github.io&lt;/code>或者&lt;code>&amp;lt;https://&amp;lt;organization&amp;gt;.github.io&lt;/code>。看到&lt;code>index.html&lt;/code>中的内容说明成功。&lt;/li>
+&lt;li>了解静态网站生成器，github官方是&lt;a class="link" href="https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll" target="_blank" rel="noopener"
+>Jekyll&lt;/a>，因为之前用过Hugo，体验非常好，所以改用Hugo。还有更多类似的 &lt;a class="link" href="https://linux.cn/article-12671-1.html" target="_blank" rel="noopener"
+>类似工具&lt;/a>，
+但是最终目的是相同的，要把我们的文档内容转为静态网页文件，关于Hugo的安装和使用查看见&lt;a class="link" href="https://gohugo.io/" target="_blank" rel="noopener"
+>详情&lt;/a>。&lt;/li>
+&lt;li>一切顺利的话，一个好看的网站就诞生了。&lt;/li>
+&lt;/ol>
+&lt;p>&lt;em>&amp;mdash;&amp;mdash; 待完善&lt;/em>&lt;/p></description></item><item><title/><link>http://willerhe.github.io/posts/resume/untitled/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://willerhe.github.io/posts/resume/untitled/</guid><description>&lt;h4 id="spring事务的默认隔离级别">Spring事务的默认隔离级别?&lt;/h4>
 &lt;p>默认隔离级别：REPEATED_READ&lt;/p>
 &lt;ol>
 &lt;li>READ_UNCOMMITED 读未提交 高并发场景下，其他线程可以读到未提交的事务的数据 ，可能出现脏读、幻读或不可重复读&lt;/li>
@@ -218,57 +271,39 @@
 &lt;li>可移植，具备灵活性，能够快速部署&lt;/li>
 &lt;li>可以编排容器，提高生产力&lt;/li>
 &lt;/ol>
-&lt;h4 id="反射的实现原理">反射的实现原理&lt;/h4></description></item><item><title>十分钟使用Github Actions自动发布Hugo网站</title><link>http://willerhe.github.io/posts/tutorial/use-github-actions/</link><pubDate>Sat, 29 May 2021 13:31:54 +0800</pubDate><guid>http://willerhe.github.io/posts/tutorial/use-github-actions/</guid><description>&lt;h3 id="介绍">介绍&lt;/h3>
-&lt;p>Github Actions是GitHub 于 2018 年 10 月推出的一个 CI\CD 服务。CI\CD 其实说的是三件事情：「持续集成（Continuous Integration）」、「持续交付（Continuous Delivery）」、「持续部署（Continuous Deployment）」。
-有了 GitHub Action 以后， GitHub 除了能够存储代码，能做的事情就更多了，比如我在 master 分支上提交了一段代码， GitHub Action 可以自动的帮我部署到我自己的服务器上去，或者它还可以帮我把代码打成镜像，将镜像自动提交到镜像仓库里。
-虽然这些事情自己手动也能做，但是懒惰是程序员的第一生产力嘛。&lt;/p>
-&lt;h3 id="环境要求">环境要求&lt;/h3>
+&lt;h4 id="java中如何实现一个单例">Java中如何实现一个单例&lt;/h4>
+&lt;p>双重检查的实现方法(线程安全、关注效率)&lt;/p>
+&lt;div class="highlight">&lt;pre class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="kd">public&lt;/span> &lt;span class="kd">class&lt;/span> &lt;span class="nc">Singleton&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;span class="kd">private&lt;/span> &lt;span class="kd">static&lt;/span> &lt;span class="kd">volatile&lt;/span> &lt;span class="n">Singleton&lt;/span> &lt;span class="n">singleton&lt;/span>&lt;span class="o">;&lt;/span>
+&lt;span class="kd">private&lt;/span> &lt;span class="nf">Singleton&lt;/span>&lt;span class="o">()&lt;/span> &lt;span class="o">{}&lt;/span>
+&lt;span class="kd">public&lt;/span> &lt;span class="kd">static&lt;/span> &lt;span class="n">Singleton&lt;/span> &lt;span class="nf">getInstance&lt;/span>&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="n">singleton&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="kc">null&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;span class="kd">synchronized&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="n">Singleton&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">class&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;span class="k">if&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="n">singleton&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="kc">null&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;span class="n">singleton&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="k">new&lt;/span> &lt;span class="n">Singleton&lt;/span>&lt;span class="o">();&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="k">return&lt;/span> &lt;span class="n">singleton&lt;/span>&lt;span class="o">;&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;span class="o">}&lt;/span>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h4 id="mysql中left-joininner-joinright-join的区别">MySQL中Left Join、Inner join、right join的区别&lt;/h4>
 &lt;ol>
-&lt;li>安装git&lt;/li>
-&lt;li>拥有一个github账号&lt;/li>
-&lt;li>了解Github Pages托管静态网站方式 &lt;a class="link" href="../use-github-pages" >Check&amp;gt;&amp;gt;&amp;gt;&lt;/a>&lt;/li>
-&lt;li>TODO：自动同步到Gitee镜像&lt;/li>
+&lt;li>Inner join 等值连接 返回两个表中连接字段相等的值&lt;/li>
+&lt;li>Left join 左表为基础返回左表中所有的记录和右表中连接记录相等的记录&lt;/li>
+&lt;li>同left join&lt;/li>
 &lt;/ol>
-&lt;h3 id="步骤">步骤&lt;/h3>
+&lt;h4 id="aop切面">AOP切面&lt;/h4>
+&lt;p>底层通过动态代理实现
+实现：&lt;/p>
 &lt;ol>
-&lt;li>了解github actions的工作流程、了解docker镜像基本使用方式。&lt;/li>
-&lt;li>找到需要自动构建的Hugo静态网站，并确保在本地能够构建成功。&lt;/li>
-&lt;li>开始使用github actions 服务，github actions会寻找项目根目录下&lt;code>.github/workflows/*&lt;/code>下面所有的文件作为工作流描述文件，&lt;a class="link" href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions" target="_blank" rel="noopener"
->了解详情&amp;gt;&amp;gt;&amp;gt;&lt;/a>。
-这里我们不需要自己编写，直接使用第三方镜像，在github的&lt;a class="link" href="https://github.com/marketplace?type=actions&amp;amp;query=hugo&amp;#43;" target="_blank" rel="noopener"
->应用市场&lt;/a> 中查找适合自己Hugo项目的actions镜像，这里用的是&lt;a class="link" href="https://github.com/marketplace/actions/hugo-setup" target="_blank" rel="noopener"
->hugo-setup&lt;/a>。
-把示例项目中&lt;code>.github/workflows/&lt;/code>下面的配置文件拷贝到自己的项目中，如果同样使用的是hugo-setup，注意&lt;code> publish_dir: ./public&lt;/code>配置在&lt;code>v3.8.0&lt;/code>版本是不起作用的，直接默认就好，不用改。
-如果报项目仓库的访问权限错误，去给自己的项目加上访问秘钥，&lt;a class="link" href="https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-first-deployment-with-github_token" target="_blank" rel="noopener"
->&amp;gt;&amp;gt;&amp;gt;&lt;/a>。&lt;/li>
-&lt;li>修改代码推送到main分支，在github actions栏目中能够看到构建过程。构建成功后，修改git pages设置，把网站指向镜像自动部署的分支，要保证github pages能够找到index.html文件。&lt;/li>
+&lt;li>@Component @Aspect&lt;/li>
+&lt;li>@Pointcut(value = &amp;ldquo;execution( * com.example.demo.controller.&lt;em>.&lt;/em>(..))&amp;quot;)&lt;/li>
+&lt;li>@Around(&amp;ldquo;pointCut()&amp;quot;)&lt;/li>
 &lt;/ol>
-&lt;p>&lt;em>&amp;mdash;&amp;mdash; 待完善&lt;/em>&lt;/p></description></item><item><title>十分钟使用Github Pages和Hugo搭建个人网站</title><link>http://willerhe.github.io/posts/tutorial/use-github-pages/</link><pubDate>Sat, 29 May 2021 13:31:54 +0800</pubDate><guid>http://willerhe.github.io/posts/tutorial/use-github-pages/</guid><description>&lt;h3 id="介绍">介绍&lt;/h3>
-&lt;p>Github Pages是Github官方的静态站点托管系统，能够依赖Git的代码管理能力和Github的仓库轻松维护个人网站。&lt;/p>
-&lt;p>Hugo是Go编写的静态网站生成器，速度快，易用，可配置。
-使用Github Pages + Hugo构建个人网站的优点：&lt;/p>
-&lt;ul>
-&lt;li>无须额外服务器，无须额外服务器，专注创作&lt;/li>
-&lt;li>支持Markdown&lt;/li>
-&lt;li>支持查看文件的历史改动&lt;/li>
-&lt;li>Hugo拥有海量皮肤，能够自定义&lt;/li>
-&lt;/ul>
-&lt;h3 id="环境要求">环境要求&lt;/h3>
-&lt;ol>
-&lt;li>安装git&lt;/li>
-&lt;li>安装golang、hugo&lt;/li>
-&lt;li>拥有一个github账号&lt;/li>
-&lt;/ol>
-&lt;h3 id="步骤">步骤&lt;/h3>
-&lt;ol>
-&lt;li>为站点创建仓库，仓库名称必须为&lt;code>&amp;lt;user&amp;gt;.github.io&lt;/code>或者&lt;code>&amp;lt;organization&amp;gt;.github.io&lt;/code>，必须为&lt;code>Public&lt;/code>仓库，必须有&lt;code>README.md&lt;/code>文件，必须有&lt;code>index.html&lt;/code>作为网站入口。&lt;a class="link" href="https://docs.github.com/cn/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-a-repository-for-your-site" target="_blank" rel="noopener"
->More&amp;gt;&amp;gt;&amp;gt;&lt;/a>&lt;/li>
-&lt;li>访问网站&lt;code>https://&amp;lt;user&amp;gt;.github.io&lt;/code>或者&lt;code>&amp;lt;https://&amp;lt;organization&amp;gt;.github.io&lt;/code>。看到&lt;code>index.html&lt;/code>中的内容说明成功。&lt;/li>
-&lt;li>了解静态网站生成器，github官方是&lt;a class="link" href="https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll" target="_blank" rel="noopener"
->Jekyll&lt;/a>，因为之前用过Hugo，体验非常好，所以改用Hugo。还有更多类似的 &lt;a class="link" href="https://linux.cn/article-12671-1.html" target="_blank" rel="noopener"
->类似工具&lt;/a>，
-但是最终目的是相同的，要把我们的文档内容转为静态网页文件，关于Hugo的安装和使用查看见&lt;a class="link" href="https://gohugo.io/" target="_blank" rel="noopener"
->详情&lt;/a>。&lt;/li>
-&lt;li>一切顺利的话，一个好看的网站就诞生了。&lt;/li>
-&lt;/ol>
-&lt;p>&lt;em>&amp;mdash;&amp;mdash; 待完善&lt;/em>&lt;/p></description></item></channel></rss>
+&lt;h4 id="事务">事务&lt;/h4>
+&lt;p>Springboot注解式事务的使用需要了解事务的 &lt;a class="link" href="https://blog.csdn.net/levae1024/article/details/82998386" target="_blank" rel="noopener"
+>传播机制&lt;/a>。&lt;/p>
+&lt;h4 id="netty-使用">Netty 使用&lt;/h4>
+&lt;h4 id="反射的实现原理">反射的实现原理&lt;/h4>
+&lt;h4 id="多个集群怎么保证会话一致性">多个集群怎么保证会话一致性&lt;/h4></description></item></channel></rss>
