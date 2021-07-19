@@ -338,10 +338,74 @@
 &lt;p>BIO：Block IO 同步阻塞式 IO，就是我们平常使用的传统 IO，它的特点是模式简单使用方便，并发处理能力低。&lt;/p>
 &lt;p>NIO：New IO 同步非阻塞 IO，是传统 IO 的升级，客户端和服务器端通过 Channel（通道）通讯，实现了多路复用。&lt;/p>
 &lt;p>AIO：Asynchronous IO 是 NIO 的升级，也叫 NIO2，实现了异步非堵塞 IO ，异步 IO 的操作基于事件和回调机制。&lt;/p>
+&lt;h4 id="threadlocal的作用">ThreadLocal的作用&lt;/h4>
+&lt;p>实现在线程中的上下文传递对象
+创建线程的私有变量&lt;/p>
+&lt;h4 id="web问题安全">Web问题安全&lt;/h4>
+&lt;ol>
+&lt;li>SQL注入 Mybatis中使用#{}代替${},#可以预编译，#{xxx}，使用的是PreparedStatement，会有类型转换，所以比较安全；&lt;/li>
+&lt;li>XSS/CSS跨站脚本攻击&lt;/li>
+&lt;li>CSRF跨站请求伪造&lt;/li>
+&lt;/ol>
+&lt;h4 id="常见的异常类">常见的异常类&lt;/h4>
+&lt;ol>
+&lt;li>
+&lt;p>NullPointerException：当应用程序试图访问空对象时，则抛出该异常。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>SQLException：提供关于数据库访问错误或其他错误信息的异常。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>IndexOutOfBoundsException：指示某排序索引（例如对数组、字符串或向量的排序）超出范围时抛出。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>NumberFormatException：当应用程序试图将字符串转换成一种数值类型，但该字符串不能转换为适当格式时，抛出该异常。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>FileNotFoundException：当试图打开指定路径名表示的文件失败时，抛出此异常。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>IOException：当发生某种I/O异常时，抛出此异常。此类是失败或中断的I/O操作生成的异常的通用类。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>ClassCastException：当试图将对象强制转换为不是实例的子类时，抛出该异常。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>ArrayStoreException：试图将错误类型的对象存储到一个对象数组时抛出的异常。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>IllegalArgumentException：抛出的异常表明向方法传递了一个不合法或不正确的参数。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>ArithmeticException：当出现异常的运算条件时，抛出此异常。例如，一个整数“除以零”时，抛出此类的一个实例。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>NegativeArraySizeException：如果应用程序试图创建大小为负的数组，则抛出该异常。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>NoSuchMethodException：无法找到某一特定方法时，抛出该异常。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>SecurityException：由安全管理器抛出的异常，指示存在安全侵犯。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>UnsupportedOperationException：当不支持请求的操作时，抛出该异常。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>RuntimeExceptionRuntimeException：是那些可能在Java虚拟机正常运行期间抛出的异常的超类。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h4 id="题目汇总">题目汇总&lt;/h4>
+&lt;p>&lt;a class="link" href="https://zhuanlan.zhihu.com/p/64147696" target="_blank" rel="noopener"
+>地址&lt;/a>&lt;/p>
 &lt;h4 id="java8的函数式编程汇总">Java8的函数式编程汇总&lt;/h4>
 &lt;p>todo..&lt;/p>
 &lt;h4 id="什么是面向对象">什么是面向对象&lt;/h4>
 &lt;h4 id="封装继承和多态">封装继承和多态&lt;/h4>
 &lt;h4 id="netty-使用">Netty 使用&lt;/h4>
 &lt;h4 id="反射的实现原理">反射的实现原理&lt;/h4>
-&lt;h4 id="多个集群怎么保证会话一致性">多个集群怎么保证会话一致性&lt;/h4></description></item></channel></rss>
+&lt;h4 id="多个集群怎么保证会话一致性">多个集群怎么保证会话一致性&lt;/h4>
+&lt;ol>
+&lt;li>有状态的，通过redis存储用户的凭证信息&lt;/li>
+&lt;li>无状态的，每次都去计算，无状态的&lt;/li>
+&lt;/ol></description></item></channel></rss>
