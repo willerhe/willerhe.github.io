@@ -253,6 +253,8 @@ Springboot注解式事务的使用需要了解事务的 [传播机制](https://b
 
 mysql默认的隔离级别是Repeatable Read 在读取数据的时候不能修改，但是因为可以删除和新增所以可能产生幻读
 
+一般事务使用要加上rollbackFor 确保不论出现什么异常都会回滚@Transactional(rollbackFor = Exception.class)
+
 B站视频[详解事务](https://www.bilibili.com/video/BV1EE411p7dD)
 
 #### 分布式架构需要用到的锁
@@ -316,6 +318,12 @@ AIO：Asynchronous IO 是 NIO 的升级，也叫 NIO2，实现了异步非堵塞
 
 #### 题目汇总
 [地址](https://zhuanlan.zhihu.com/p/64147696)
+
+
+#### Spring中实现代理的方式
+1. jdk代理，依赖接口，如果没有接口就不能实现
+2. cglib动态代理
+动态代理jdk要比cglib效率好一些，所以server层一般都使用接口
 
 #### Java8的函数式编程汇总
 todo..
