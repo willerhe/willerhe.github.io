@@ -320,6 +320,7 @@
 &lt;li>幻读：一般是增加或者删除操作&lt;/li>
 &lt;/ol>
 &lt;p>mysql默认的隔离级别是Repeatable Read 在读取数据的时候不能修改，但是因为可以删除和新增所以可能产生幻读&lt;/p>
+&lt;p>一般事务使用要加上rollbackFor 确保不论出现什么异常都会回滚@Transactional(rollbackFor = Exception.class)&lt;/p>
 &lt;p>B站视频&lt;a class="link" href="https://www.bilibili.com/video/BV1EE411p7dD" target="_blank" rel="noopener"
 >详解事务&lt;/a>&lt;/p>
 &lt;h4 id="分布式架构需要用到的锁">分布式架构需要用到的锁&lt;/h4>
@@ -398,6 +399,12 @@
 &lt;h4 id="题目汇总">题目汇总&lt;/h4>
 &lt;p>&lt;a class="link" href="https://zhuanlan.zhihu.com/p/64147696" target="_blank" rel="noopener"
 >地址&lt;/a>&lt;/p>
+&lt;h4 id="spring中实现代理的方式">Spring中实现代理的方式&lt;/h4>
+&lt;ol>
+&lt;li>jdk代理，依赖接口，如果没有接口就不能实现&lt;/li>
+&lt;li>cglib动态代理
+动态代理jdk要比cglib效率好一些，所以server层一般都使用接口&lt;/li>
+&lt;/ol>
 &lt;h4 id="java8的函数式编程汇总">Java8的函数式编程汇总&lt;/h4>
 &lt;p>todo..&lt;/p>
 &lt;h4 id="什么是面向对象">什么是面向对象&lt;/h4>
