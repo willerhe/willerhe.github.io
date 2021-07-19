@@ -276,6 +276,47 @@ NIO：New IO 同步非阻塞 IO，是传统 IO 的升级，客户端和服务器
 
 AIO：Asynchronous IO 是 NIO 的升级，也叫 NIO2，实现了异步非堵塞 IO ，异步 IO 的操作基于事件和回调机制。
 
+#### ThreadLocal的作用
+实现在线程中的上下文传递对象
+创建线程的私有变量
+#### Web问题安全
+1. SQL注入 Mybatis中使用#{}代替${},#可以预编译，#{xxx}，使用的是PreparedStatement，会有类型转换，所以比较安全；
+2. XSS/CSS跨站脚本攻击
+3. CSRF跨站请求伪造
+#### 常见的异常类
+1. NullPointerException：当应用程序试图访问空对象时，则抛出该异常。
+
+2. SQLException：提供关于数据库访问错误或其他错误信息的异常。
+
+3. IndexOutOfBoundsException：指示某排序索引（例如对数组、字符串或向量的排序）超出范围时抛出。 
+
+4. NumberFormatException：当应用程序试图将字符串转换成一种数值类型，但该字符串不能转换为适当格式时，抛出该异常。
+
+5. FileNotFoundException：当试图打开指定路径名表示的文件失败时，抛出此异常。
+
+6. IOException：当发生某种I/O异常时，抛出此异常。此类是失败或中断的I/O操作生成的异常的通用类。
+
+7. ClassCastException：当试图将对象强制转换为不是实例的子类时，抛出该异常。
+
+8. ArrayStoreException：试图将错误类型的对象存储到一个对象数组时抛出的异常。
+
+9. IllegalArgumentException：抛出的异常表明向方法传递了一个不合法或不正确的参数。
+
+10. ArithmeticException：当出现异常的运算条件时，抛出此异常。例如，一个整数“除以零”时，抛出此类的一个实例。 
+
+11. NegativeArraySizeException：如果应用程序试图创建大小为负的数组，则抛出该异常。
+
+12. NoSuchMethodException：无法找到某一特定方法时，抛出该异常。
+
+13. SecurityException：由安全管理器抛出的异常，指示存在安全侵犯。
+
+14. UnsupportedOperationException：当不支持请求的操作时，抛出该异常。
+
+15. RuntimeExceptionRuntimeException：是那些可能在Java虚拟机正常运行期间抛出的异常的超类。
+
+#### 题目汇总
+[地址](https://zhuanlan.zhihu.com/p/64147696)
+
 #### Java8的函数式编程汇总
 todo..
 
@@ -287,6 +328,8 @@ todo..
 #### 反射的实现原理
 
 #### 多个集群怎么保证会话一致性
+1. 有状态的，通过redis存储用户的凭证信息
+2. 无状态的，每次都去计算，无状态的
 
 
 
